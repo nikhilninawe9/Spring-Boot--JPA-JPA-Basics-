@@ -1,10 +1,13 @@
 package com.example.demo;
 
+import java.util.List;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.example.demo.dao.UserDao;
+import com.example.demo.entity.User;
 
 @SpringBootApplication
 public class JpaExampleApplication {
@@ -126,6 +129,28 @@ public class JpaExampleApplication {
 //		names.forEach(data -> {
 //			System.out.println(data);
 //		});
+
+		List<User> users = userDao.getAllUsers();
+		users.forEach(data -> {
+			System.out.println(data);
+		});
+
+		List<User> userss = userDao.getUserByNameAndCity("John Trovolta", "New Delhi");
+		userss.forEach(data1 -> {
+			System.out.println(userss);
+		});
+
+		List<User> listUsers = userDao.getAllUsers2();
+		listUsers.forEach(l -> {
+			System.out.println(l);
+		});
+
+		System.out.println("=================================================");
+
+		List<User> listUsers2 = userDao.getUsersByNameAndCity2("John Trovolta", "New Delhi");
+		listUsers2.forEach(l -> {
+			System.out.println(l);
+		});
 	}
 
 }
